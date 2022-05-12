@@ -3,7 +3,14 @@
     <!--<img alt="Vue logo" src="./assets/logo.png">-->
     <!--<HelloWorld msg="Welcome to Your Vue.js App"/>-->
     <TitleHeading titulo="Prode - Mundial Qatar 2022"/>
-    <GruposTablas />
+      <div class="contenedor-grupos">
+        <GruposTablas 
+                v-for="(tabla, index) in tablas" :key="index"
+                :index="index" 
+                :titulos="titulos" 
+                :registros="tabla.registros"/>
+                >
+      </div>
   </div>
 </template>
 
@@ -157,5 +164,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.contenedor-grupos{
+    display: flex;
+    justify-content: center;
 }
 </style>
